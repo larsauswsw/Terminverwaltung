@@ -1,6 +1,7 @@
 
 
 // Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.rejectIfNoRule = true
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'terminverwaltung.SpringUser'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'terminverwaltung.SpringUserSpringRole'
 grails.plugin.springsecurity.authority.className = 'terminverwaltung.SpringRole'
