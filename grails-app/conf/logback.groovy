@@ -34,4 +34,7 @@ if ( Environment.isDevelopmentMode() && targetDir != null ) {
     }
     logger( "StackTrace", ERROR, ['FULL_STACKTRACE'], false )
 }
+
+logger( "org.hibernate.orm.deprecation", ERROR, appenders, false )
+
 root( WARN, ['STDOUT'] )
