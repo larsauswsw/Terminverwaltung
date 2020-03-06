@@ -4,72 +4,71 @@ import grails.validation.ValidationException
 
 import static org.springframework.http.HttpStatus.*
 
-class TerminController {
+class KursController {
 
-    TerminService terminService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index( Integer max ) {
         params.max = Math.min( max ?: 10, 100 )
-        respond terminService.list( params ), model: [terminCount: terminService.count()]
+        respond kursService.list( params ), model: [kursCount: kursService.count()]
     }
 
     def show( Long id ) {
-        respond terminService.get( id )
+        respond kursService.get( id )
     }
 
     def create() {
-        respond new Termin( params )
+        respond new Kurs( params )
     }
 
-    def save( Termin termin ) {
-        if ( termin == null ) {
+    def save( Kurs kurs ) {
+        if ( kurs == null ) {
             notFound()
             return
         }
 
         try {
-            terminService.save( termin )
+            kursService.save( kurs )
         }
         catch ( ValidationException e ) {
-            respond termin.errors, view: 'create'
+            respond kurs.errors, view: 'create'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message( code: 'default.created.message', args: [message( code: 'termin.label', default: 'Termin' ), termin.id] )
-                redirect termin
+                flash.message = message( code: 'default.created.message', args: [message( code: 'kurs.label', default: 'Kurs' ), kurs.id] )
+                redirect kurs
             }
-            '*' { respond termin, [status: CREATED] }
+            '*' { respond kurs, [status: CREATED] }
         }
     }
 
     def edit( Long id ) {
-        respond terminService.get( id )
+        respond kursService.get( id )
     }
 
-    def update( Termin termin ) {
-        if ( termin == null ) {
+    def update( Kurs kurs ) {
+        if ( kurs == null ) {
             notFound()
             return
         }
 
         try {
-            terminService.save( termin )
+            kursService.save( kurs )
         }
         catch ( ValidationException e ) {
-            respond termin.errors, view: 'edit'
+            respond kurs.errors, view: 'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message( code: 'default.updated.message', args: [message( code: 'termin.label', default: 'Termin' ), termin.id] )
-                redirect termin
+                flash.message = message( code: 'default.updated.message', args: [message( code: 'kurs.label', default: 'Kurs' ), kurs.id] )
+                redirect kurs
             }
-            '*' { respond termin, [status: OK] }
+            '*' { respond kurs, [status: OK] }
         }
     }
 
@@ -79,11 +78,11 @@ class TerminController {
             return
         }
 
-        terminService.delete( id )
+        kursService.delete( id )
 
         request.withFormat {
             form multipartForm {
-                flash.message = message( code: 'default.deleted.message', args: [message( code: 'termin.label', default: 'Termin' ), id] )
+                flash.message = message( code: 'default.deleted.message', args: [message( code: 'kurs.label', default: 'Kurs' ), id] )
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NO_CONTENT }
@@ -93,7 +92,7 @@ class TerminController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message( code: 'default.not.found.message', args: [message( code: 'termin.label', default: 'Termin' ), params.id] )
+                flash.message = message( code: 'default.not.found.message', args: [message( code: 'kurs.label', default: 'Kurs' ), params.id] )
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NOT_FOUND }
