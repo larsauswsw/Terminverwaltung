@@ -5,7 +5,7 @@ import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 class KursController {
-
+    KursService kursService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
