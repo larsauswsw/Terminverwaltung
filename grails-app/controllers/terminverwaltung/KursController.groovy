@@ -1,9 +1,11 @@
 package terminverwaltung
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 
 import static org.springframework.http.HttpStatus.*
 
+@Secured('ROLE_ADMIN')
 class KursController {
     KursService kursService
 
