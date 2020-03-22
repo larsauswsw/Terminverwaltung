@@ -10,6 +10,7 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
     <asset:stylesheet src="application.css"/>
+    <asset:stylesheet src="bootstrap.min.css"/>
 
     <g:layoutHead/>
 </head>
@@ -41,6 +42,11 @@
 </div>
 
 <asset:javascript src="application.js"/>
+
+<asset:javascript src="jquery-3.3.1.min.js"/>
+<asset:javascript src="popper.min.js"/>
+<asset:javascript src="bootstrap.min.js"/>
+
 
 </body>
 </html>
