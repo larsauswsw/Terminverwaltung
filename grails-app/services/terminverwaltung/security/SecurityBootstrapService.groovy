@@ -24,7 +24,7 @@ class SecurityBootstrapService {
                 '/**/js/**', '/**/css/**', '/**/images/**',
                 '/login', '/login.*', '/login/*',
                 '/logout', '/logout.*', '/logout/*']) {
-            new RequestMap(url: url, configAttribute: 'permitAll').save(failOnError:true)
+            //new RequestMap(url: url, configAttribute: 'permitAll').save(failOnError:true)
         }
 
         springSecurityService.clearCachedRequestmaps()

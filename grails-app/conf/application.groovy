@@ -4,13 +4,8 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'terminverwaltung.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'terminverwaltung.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'terminverwaltung.security.Role'
-grails.plugin.springsecurity.authority.groupAuthorityNameField = 'authorities'
-grails.plugin.springsecurity.useRoleGroups = true
-grails.plugin.springsecurity.requestMap.className = 'terminverwaltung.security.RequestMap'
-grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
-	[pattern: '/index',          access:['permitAlls']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
@@ -30,8 +25,4 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
-
-grails.plugin.springsecurity.rememberMe.persistent = true
-grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'terminverwaltung.security.PersistentLogin'
-grails.plugin.springsecurity.roleHierarchyEntryClassName = 'terminverwaltung.security.RoleHierarchyEntry'
 

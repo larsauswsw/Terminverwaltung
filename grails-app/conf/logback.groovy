@@ -70,6 +70,8 @@ appender( "ROLLING", RollingFileAppender ) {
 //
 appenders.add( "ROLLING" )
 
-//logger( "org.hibernate.orm.deprecation", ERROR, appenders, false )
+logger( "org.hibernate.orm.deprecation", ERROR, appenders, false )
+logger 'org.springframework.security', DEBUG, appenders, false
+logger 'grails.plugin.springsecurity', DEBUG, appenders, false
 
 root( INFO, appenders )
